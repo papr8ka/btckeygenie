@@ -1,5 +1,5 @@
 /* btckeygenie v1.0.0
- * https://github.com/vsergeev/btckeygenie
+ * https://github.com/papr8ka/btckeygenie
  * License: MIT
  */
 
@@ -114,8 +114,8 @@ func TestBase58Check(t *testing.T) {
 
 	/* Test base-58 check decoding of invalid strings */
 	b58CheckInvalidVectors := []string{
-		"5T3IW5p", // Invalid base58
-		"6wi",     // Missing checksum
+		"5T3IW5p",                          // Invalid base58
+		"6wi",                              // Missing checksum
 		"6UwLL9Risc3QfPqBUvKofHmBQ7wMtjzm", // Invalid checksum
 	}
 

@@ -1,5 +1,5 @@
 /* btckeygenie v1.0.0
- * https://github.com/vsergeev/btckeygenie
+ * https://github.com/papr8ka/btckeygenie
  * License: MIT
  */
 

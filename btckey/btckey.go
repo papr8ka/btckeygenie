@@ -1,5 +1,5 @@
 /* btckeygenie v1.0.0
- * https://github.com/vsergeev/btckeygenie
+ * https://github.com/papr8ka/btckeygenie
  * License: MIT
  */
 
@@ -7,9 +7,9 @@ package btckey
 
 import (
 	"bytes"
-	"golang.org/x/crypto/ripemd160"
 	"crypto/sha256"
 	"fmt"
+	"golang.org/x/crypto/ripemd160"
 	"io"
 	"math/big"
 	"strings"
@@ -44,7 +44,7 @@ type PrivateKey struct {
 	D *big.Int
 }
 
-func NewPrivateKey(d *big.Int) (*PrivateKey) {
+func NewPrivateKey(d *big.Int) *PrivateKey {
 	key := &PrivateKey{D: d}
 	key.derive()
 	return key
