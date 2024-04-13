@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"github.com/papr8ka/btckeygenie/btckey"
 	"log"
+	"strings"
 )
 
 func byteString(b []byte) (s string) {
@@ -34,6 +35,25 @@ type Address struct {
 	PrivateKeyWIFUncompressed string // Private Key WIF (Uncompressed)
 	PrivateKeyBytes           string // Private Key Bytes
 	PrivateKeyBase64          string // Private Key Base64
+}
+
+func (address *Address) String() string {
+	sb := &strings.Builder{}
+
+	sb.WriteString(fmt.Sprintf("Address compressed: %s\n", address.AddressCompressed))
+	sb.WriteString(fmt.Sprintf("Public Key Bytes compressed: %s\n", address.PublicKeyBytesCompressed))
+	sb.WriteString(fmt.Sprintf("Public Key Base64 compressed: %s\n", address.PublicKeyBase64Compressed))
+	sb.WriteString("\n")
+	sb.WriteString(fmt.Sprintf("Bitcoin Address uncompressed: %s\n", address.AddressUncompressed))
+	sb.WriteString(fmt.Sprintf("Public Key Bytes uncompressed: %s\n", address.PublicKeyBytesUncompressed))
+	sb.WriteString(fmt.Sprintf("Public Key Base64 uncompressed: %s\n", address.PublicKeyBase64))
+	sb.WriteString("\n")
+	sb.WriteString(fmt.Sprintf("Private Key WIFC compressed: %s\n", address.PrivateKeyWIFCCompressed))
+	sb.WriteString(fmt.Sprintf("Private Key WIF uncompressed: %s\n", address.PrivateKeyWIFUncompressed))
+	sb.WriteString(fmt.Sprintf("Private Key Bytes: %s\n", address.PrivateKeyBytes))
+	sb.WriteString(fmt.Sprintf("Private Key Base64: %s\n", address.PrivateKeyBase64))
+
+	return sb.String()
 }
 
 func Generate() *Address {
