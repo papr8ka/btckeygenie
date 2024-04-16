@@ -492,3 +492,20 @@ func (pub *PublicKey) ToAddressUncompressed() (address string) {
 
 	return address
 }
+
+func PrivateKeyBytesToWIF(key []byte) string {
+	edited := append([]byte{0x80}, key...)
+	edited = append(edited, 0x01)
+
+	h := sha256.New()
+	h.Write(edited)
+	h1 := h.Sum(nil)
+
+	h = sha256.New()
+	h.Write(h1)
+	h2 := h.Sum(nil)
+
+	checksum := h2[0:4]
+
+	return b58encode(append(edited, checksum...))
+}
